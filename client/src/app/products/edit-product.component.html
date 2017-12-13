@@ -1,0 +1,63 @@
+<main>
+  <form #editProductForm="ngForm" (submit)="saveProduct()">
+    <h2>Edit Product</h2>
+    <div>
+      <label for="category">Category</label>
+      <select
+        name="category"
+        id="category"
+        [(ngModel)]="product.category"
+        required>
+        <option *ngIf="product.category" value="{{product.category}}">{{product.category}}</option>
+        <option *ngIf="product.category !== 'Beef'" value="Beef">Beef</option>
+        <option *ngIf="product.category !== 'Chicken'" value="Chicken">Chicken</option>
+        <option *ngIf="product.category !== 'Lamb'" value="Lamb">Lamb</option>
+      </select>
+    </div>
+    <div>
+      <label for="imageUrl">Image Url</label>
+      <input
+        id="imageUrl"
+        name="imageUrl"
+        type="url"
+        [(ngModel)]="product.imageUrl"
+        #imageUrl="ngModel"
+        required />
+      <span [hidden]="imageUrl.valid || imageUrl.pristine">
+        Image is required!
+      </span>
+    </div>
+    <div>
+      <label for="size">Size</label>
+      <input
+        id="size"
+        name="size"
+        type="number"
+        min="17"
+        max="24"
+        [(ngModel)]="product.size"
+        #size="ngModel"
+        required />
+      <span [hidden]="size.valid || size.pristine">
+        Size is required!
+      </span>
+    </div>
+    <div>
+      <strong>Toppings</strong>
+      <br>
+      <textarea
+        id="toppings"
+        name="toppings"
+        [(ngModel)]="product.toppings">
+        {{product.toppings}}
+      </textarea>
+    </div>
+    <div>
+      <input
+        type="submit"
+        value="Save"
+        class="button"
+        style="border:0" />
+    </div>
+  </form>
+</main>

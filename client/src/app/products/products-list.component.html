@@ -1,0 +1,37 @@
+<main>
+    <h1>Welcome to Doner Place!</h1>
+    <p>We offer a wide variety of tasty doner kebab, cutosmized to your liking. Choose from different sizes of chicken, beef and lamb and any topping you want. Place your order now!</p>
+    <div class="products">
+
+        <h2 *ngIf="isAdmin">Admin</h2>
+        <div *ngIf="isAdmin" class="product-card">
+            <img src="{{url}}/img/new.png">
+            <a routerLink="/products/create" class="button product-title">Create Product</a>
+        </div>
+    
+        <h2 *ngIf="products.chicken">Chicken Doner</h2>
+        <div *ngFor="let product of products.chicken" class="product-card">
+            <img src="{{url}}/{{product.imageUrl}}">
+            <a *ngIf="isAdmin" routerLink="/products/edit/{{product._id}}" class="control"><img class="control-img" src="{{url}}/img/edit.png"></a>
+            <a *ngIf="isAdmin" href="javascript:void(0)" (click)="deleteProduct(product._id)" class="control"><img class="control-img" src="{{url}}/img/delete.png"></a>
+            <a *ngIf="!isAdmin" routerLink="/order/customize/{{product._id}}" class="button product-title">Order</a>
+        </div>
+
+        <h2 *ngIf="products.beef">Beef Doner</h2>
+        <div *ngFor="let product of products.beef" class="product-card">
+            <img src="{{url}}/{{product.imageUrl}}">
+            <a *ngIf="isAdmin" routerLink="/products/edit/{{product._id}}" class="control"><img class="control-img" src="{{url}}/img/edit.png"></a>
+            <a *ngIf="isAdmin" href="javascript:void(0)" (click)="deleteProduct(product._id)" class="control"><img class="control-img" src="{{url}}/img/delete.png"></a>
+            <a *ngIf="!isAdmin" routerLink="/order/customize/{{product._id}}" class="button product-title">Order</a>
+        </div>
+
+        <h2 *ngIf="products.lamb">Lamb Doner</h2>
+        <div *ngFor="let product of products.lamb" class="product-card">
+            <img src="{{url}}/{{product.imageUrl}}">
+            <a *ngIf="isAdmin" routerLink="/products/edit/{{product._id}}" class="control"><img class="control-img" src="{{url}}/img/edit.png"></a>
+            <a *ngIf="isAdmin" href="javascript:void(0)" (click)="deleteProduct(product._id)" class="control"><img class="control-img" src="{{url}}/img/delete.png"></a>
+            <a *ngIf="!isAdmin" routerLink="/order/customize/{{product._id}}" class="button product-title">Order</a>
+        </div>
+            
+    </div>
+</main>

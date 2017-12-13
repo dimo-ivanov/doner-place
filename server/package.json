@@ -1,0 +1,31 @@
+{
+  "name": "doner-place",
+  "version": "0.0.1",
+  "description": "Doner Place",
+  "main": "index.js",
+  "engines": {
+    "node": "8.6.0",
+    "npm": "5.5.1"
+  },
+  "keywords": [
+    "doner",
+    "place",
+    "order"
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "DI",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cors": "2.8.3",
+    "cookie-parser": "1.4.3",
+    "express": "4.15.3",
+    "express-handlebars": "3.0.0",
+    "express-session": "1.15.3",
+    "mongoose": "4.10.4",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0"
+  }
+}

@@ -1,0 +1,57 @@
+<main>
+            <h1>Order details</h1>
+            <div class="catalog">
+                <div class="column">
+                    <img src="{{order.product.imgUrl}}">
+                </div>
+                <div class="column">
+                    <h2>{{order.product.category}} doner, {{order.product.size}}cm</h2>
+                    <h3>From {{formatDate order.creationDate}}</h3>
+                    <div class="toppings">
+                        {{#each order.toppings}}
+                          {{this}}<br>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="status-block">
+                        <span class="progress-right"></span>
+                        {{#ifEquals order.status 'Pending'}}
+                          <span class="checkpoint current"></span><br>
+                        {{else}}
+                          <span class="checkpoint"></span><br>
+                        {{/ifEquals}}
+                        Pending
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        <span class="progress-right"></span>
+                        {{#ifEquals order.status 'inProgress'}}
+                          <span class="checkpoint current"></span><br>
+                        {{else}}
+                          <span class="checkpoint"></span><br>
+                        {{/ifEquals}}
+                        In progress
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        <span class="progress-right"></span>
+                        {{#ifEquals order.status 'inTransit'}}
+                          <span class="checkpoint current"></span><br>
+                        {{else}}
+                          <span class="checkpoint"></span><br>
+                        {{/ifEquals}}
+                        In transit
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        {{#ifEquals order.status 'delivered'}}
+                          <span class="checkpoint current"></span><br>
+                        {{else}}
+                          <span class="checkpoint"></span><br>
+                        {{/ifEquals}}
+                        Delivered
+                    </div>
+                </div>
+            </div>
+        </main>

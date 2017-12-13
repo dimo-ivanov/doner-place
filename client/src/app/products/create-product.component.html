@@ -1,0 +1,62 @@
+<main>
+  <form #createProductForm="ngForm" (submit)="createProduct()">
+    <h2>Create Product</h2>
+    <div>
+      <label for="category">Category</label>
+      <select
+        name="category"
+        id="category"
+        [(ngModel)]="product.category"
+        required>
+        <option value="Beef">Beef</option>
+        <option value="Chicken">Chicken</option>
+        <option value="Lamb">Lamb</option>
+      </select>
+    </div>
+    <div>
+      <label for="imageUrl">Image Url</label>
+      <input
+        id="imageUrl"
+        name="imageUrl"
+        type="url"
+        [(ngModel)]="product.imageUrl"
+        #imageUrl="ngModel"
+        required />
+      <span [hidden]="imageUrl.valid || imageUrl.pristine">
+        Image is required!
+      </span>
+    </div>
+    <div>
+      <label for="size">Size</label>
+      <input
+        id="size"
+        name="size"
+        type="number"
+        min="17"
+        max="24"
+        [(ngModel)]="product.size"
+        #size="ngModel"
+        required />
+      <span [hidden]="size.valid || size.pristine">
+        Size is required!
+      </span>
+    </div>
+    <div>
+      <strong>Toppings</strong>
+      <br>
+      <textarea
+        id="toppings"
+        name="toppings"
+        [(ngModel)]="product.toppings">
+        {{product.toppings}}
+      </textarea>
+    </div>
+    <div>
+      <input
+        type="submit"
+        value="Create"
+        class="button"
+        style="border:0" />
+    </div>
+  </form>
+</main>

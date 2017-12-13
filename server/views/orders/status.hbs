@@ -1,0 +1,35 @@
+<main>
+    {{#if isAdmin}}
+      <h1>Manage orders</h1>
+    {{else}}
+      <h1>Your orders</h1>
+    {{/if}}
+    <div class="orders">
+      <form method="post">
+        {{#each orders}}
+        <div class="order">
+            <span class="order-time">{{formatDate this.creationDate}}</span>
+            <span class="order-name">{{this.product.category}} doner, {{this.product.size}} cm</span>
+            {{#if ../isAdmin}}
+              <span class="order-status">
+                <select name="{{this._id}}">
+                  {{#select this.status}}
+                    <option value="Pending">Pending</option>
+                    <option value="inProgress">In Progress</option>
+                    <option value="inTransit">In Transit</option>
+                    <option value="delivered">Delivered</option>
+                  {{/select}}
+                </select>
+              </span>
+            {{else}}
+              <span class="order-status">{{this.status}}</span>
+            {{/if}}
+            <a href="/order/details/{{this._id}}" class="button order-button">Details</a>
+        </div>
+        {{/each}}
+        {{#if isAdmin}}
+          <input type="submit" value="Save Changes" class="button" style="border:0">
+        {{/if}}
+      </form>
+    </div>
+</main>
