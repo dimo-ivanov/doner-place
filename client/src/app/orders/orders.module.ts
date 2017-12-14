@@ -7,10 +7,12 @@ import { OrdersService } from './orders.service';
 import { OrdersActions } from '../store/orders/orders.actions';
 
 import { CreateOrderComponent } from './create-order.component';
+import { OrderDetailsComponent } from './order-details.component';
 
 @NgModule({
   declarations: [
-    CreateOrderComponent
+    CreateOrderComponent,
+    OrderDetailsComponent
   ],
   providers: [
     OrdersService,

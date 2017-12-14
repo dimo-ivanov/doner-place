@@ -10,4 +10,8 @@ export class OrdersService {
   create (order) {
     return this.httpService.post('order/add', order);
   }
+
+  getOrderDetails(id) {
+    return this.httpService.get(`order/details/${id}`);
+  }
 }

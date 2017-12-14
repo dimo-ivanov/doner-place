@@ -68,7 +68,7 @@ export class CreateOrderComponent implements OnInit {
         const id = orders.orderAddedId;
         subscription.unsubscribe();
 
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl(`order/details/${id}`);
       }
     });
   }

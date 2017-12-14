@@ -4,6 +4,7 @@ import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../index';
 
 export const CREATE_ORDER = 'orders/CREATE';
+export const ORDER_DETAILS = 'orders/ORDER_DETAILS';
 
 @Injectable()
 export class OrdersActions {
@@ -21,5 +22,16 @@ export class OrdersActions {
           result
         });
       });
-    }
+  }
+
+  getOrder (id) {
+    this.ordersService
+      .getOrderDetails(id)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: ORDER_DETAILS,
+          result
+        });
+      });
+  }
 }

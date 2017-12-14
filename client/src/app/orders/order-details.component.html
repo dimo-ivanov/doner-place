@@ -1,0 +1,43 @@
+<main>
+  <h1>Order details</h1>
+  <div class="catalog">
+      <div class="column">
+          <img *ngIf="order.product" src="{{url}}/{{order.product.imageUrl}}">
+      </div>
+      <div *ngIf="order.product" class="column">
+          <h2>{{order.product.category}} doner, {{order.product.size}}cm</h2>
+          <h3>From {{order.creationDate | date: 'dd/MM/yyyy'}}</h3>
+          <div class="toppings">
+            <span *ngFor="let topping of toppings">{{topping}}<br></span>
+          </div>
+      </div>
+      <div class="status">
+          <div class="status-block">
+              <span class="progress-right"></span>
+              <span *ngIf="order.status == 'Pending'" class="checkpoint current"></span>
+              <span *ngIf="order.status != 'Pending'" class="checkpoint"></span><br>
+              Pending
+          </div>
+          <div class="status-block">
+              <span class="progress-left"></span>
+              <span class="progress-right"></span>
+              <span *ngIf="order.status == 'inProgress'" class="checkpoint current"></span>
+              <span *ngIf="order.status != 'inProgress'" class="checkpoint"></span><br>
+              In progress
+          </div>
+          <div class="status-block">
+              <span class="progress-left"></span>
+              <span class="progress-right"></span>
+              <span *ngIf="order.status == 'inTransit'" class="checkpoint current"></span>
+              <span *ngIf="order.status != 'inTransit'" class="checkpoint"></span><br>
+              In transit
+          </div>
+          <div class="status-block">
+              <span class="progress-left"></span>
+              <span *ngIf="order.status == 'delivered'" class="checkpoint current"></span>
+              <span *ngIf="order.status != 'delivered'" class="checkpoint"></span><br>
+              Delivered
+          </div>
+      </div>
+  </div>
+</main>
