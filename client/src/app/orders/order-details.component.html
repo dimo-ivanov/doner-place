@@ -7,8 +7,10 @@
       <div *ngIf="order.product" class="column">
           <h2>{{order.product.category}} doner, {{order.product.size}}cm</h2>
           <h3>From {{order.creationDate | date: 'dd/MM/yyyy'}}</h3>
-          <div class="toppings">
-            <span *ngFor="let topping of toppings">{{topping}}<br></span>
+          <div *ngIf="order.toppings" class="toppings">
+            <br>
+            <h5>Toppings</h5>
+            <span *ngFor="let topping of order.toppings">{{topping}}<br></span>
           </div>
       </div>
       <div class="status">
