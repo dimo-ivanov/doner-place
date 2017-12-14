@@ -13,6 +13,7 @@ import { UsersActions } from '../store/users/users.actions';
 })
 export class RegisterComponent {
   user: RegisterUserModel = new RegisterUserModel();
+  error: string = null;
 
   constructor (
     private usersActions: UsersActions,
@@ -23,10 +24,15 @@ export class RegisterComponent {
   register () {
     this.usersActions.register(this.user);
     this.ngRedux
-      .select(state => state.users.userRegistered)
-      .subscribe(userRegistered => {
-        if (userRegistered) {
+      .select(state => state.users)
+      .subscribe(users => {
+        if (users.userRegistered) {
           this.router.navigateByUrl('users/login');
+          return;
+        }
+
+        if (users.error) {
+          this.error = users.error;
         }
       });
   }

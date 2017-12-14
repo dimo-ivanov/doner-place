@@ -14,6 +14,7 @@ import { LoginUserModel } from './login-user.model';
 })
 export class LoginComponent {
   user: LoginUserModel = new LoginUserModel();
+  error: string = null;
 
   constructor (
     private usersActions: UsersActions,
@@ -32,6 +33,12 @@ export class LoginComponent {
           this.authService.saveUser(users.username);
 
           this.router.navigateByUrl('');
+
+          return;
+        }
+
+        if (users.error) {
+          this.error = users.error;
         }
       })
   }

@@ -9,7 +9,8 @@ import {
 function userRegistration(state, action) {
   const result = action.result;
   return Object.assign({}, state, {
-    userRegistered: result.error ? false : true
+    userRegistered: result.error ? false : true,
+    error: result.error || null
   });
 }
 
@@ -17,9 +18,10 @@ function userLogin(state, action) {
   const result = action.result;
   return Object.assign({}, state, {
     userAuthenticated: result.user ? true : false,
-    token: result.user.id || result.user.token,
-    username: result.user.username,
-    isAdmin: result.user.isAdmin || (result.user.roles && result.user.roles.indexOf('Admin') > -1)
+    token: result.user ? result.user.id || result.user.token : null,
+    username: result.user ? result.user.username : null,
+    isAdmin: result.user ? result.user.isAdmin || (result.user.roles && result.user.roles.indexOf('Admin') > -1) : false,
+    error: result.error || null
   });
 }
 

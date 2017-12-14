@@ -3,7 +3,8 @@ export interface IUsersState {
   userAuthenticated: boolean,
   token: string,
   username: string,
-  isAdmin: boolean
+  isAdmin: boolean,
+  error: string
 }
 
 export const initialState: IUsersState = {
@@ -11,5 +12,6 @@ export const initialState: IUsersState = {
   userAuthenticated: false,
   token: null,
   username: null,
-  isAdmin: false
+  isAdmin: false,
+  error: null
 }
