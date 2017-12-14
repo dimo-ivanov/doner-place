@@ -11,7 +11,6 @@ import { AuthService } from '../core/auth.service';
 export class ProductsListComponent implements OnInit {
   products: object = {};
   isAdmin: boolean = false;
-  url: string = './assets';
 
   constructor(
     private ngRedux: NgRedux<IAppState>,

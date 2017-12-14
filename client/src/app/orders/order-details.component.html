@@ -2,7 +2,7 @@
   <h1>Order details</h1>
   <div class="catalog">
       <div class="column">
-          <img *ngIf="order.product" src="{{url}}/{{order.product.imageUrl}}">
+          <img *ngIf="order.product" src="{{order.product.imageUrl}}">
       </div>
       <div *ngIf="order.product" class="column">
           <h2>{{order.product.category}} doner, {{order.product.size}}cm</h2>

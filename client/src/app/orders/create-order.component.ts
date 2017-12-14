@@ -15,7 +15,6 @@ export class CreateOrderComponent implements OnInit {
   product: object = {
     toppings: []
   };
-  url: string = './assets';
 
   constructor(
     private route: ActivatedRoute,

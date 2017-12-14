@@ -10,7 +10,6 @@ import { IAppState } from '../store/index';
 })
 export class OrderDetailsComponent implements OnInit {
   order: object = {};
-  url: string = './assets';
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
