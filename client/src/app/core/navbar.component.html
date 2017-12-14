@@ -9,8 +9,7 @@
       <li><a class="button" routerLink="/">Home</a></li>
 
         <li *ngIf="authenticated">
-          <a *ngIf="isAdmin" class="button" routerLink="/order/status-admin">Order Status</a>
-          <a *ngIf="!isAdmin" class="button" routerLink="/order/status">Order Status</a>
+          <a class="button" routerLink="/order/status">Order Status</a>
         </li>
 
         <li *ngIf="!authenticated"><a class="button" routerLink="/users/login">Login</a></li>

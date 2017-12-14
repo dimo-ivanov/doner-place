@@ -4,7 +4,10 @@ import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../index';
 
 export const CREATE_ORDER = 'orders/CREATE';
-export const ORDER_DETAILS = 'orders/ORDER_DETAILS';
+export const ORDER_DETAILS = 'orders/DETAILS';
+export const ORDER_STATUS = 'orders/STATUS';
+export const ALL_ORDERS = 'orders/ALL';
+export const SAVE_STATUSES = 'orders/STATUSES';
 
 @Injectable()
 export class OrdersActions {
@@ -30,6 +33,39 @@ export class OrdersActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: ORDER_DETAILS,
+          result
+        });
+      });
+  }
+
+  getOrderStatus (id) {
+    this.ordersService
+      .getOrderStatus(id)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: ORDER_STATUS,
+          result
+        });
+      });
+  }
+
+  getAllOrders () {
+    this.ordersService
+      .getAllOrders()
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: ALL_ORDERS,
+          result
+        });
+      });
+  }
+
+  saveStatuses (statuses) {
+    this.ordersService
+      .saveStatuses(statuses)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: SAVE_STATUSES,
           result
         });
       });

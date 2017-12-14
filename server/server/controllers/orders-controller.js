@@ -91,7 +91,7 @@ module.exports = {
       })
   },
   statusGet: (req, res) => {
-    let userId = req.user.id
+    let userId = req.params.id
 
     Order
       .find({ creator: userId })

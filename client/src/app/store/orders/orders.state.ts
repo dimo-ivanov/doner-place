@@ -3,7 +3,8 @@ export interface IOrdersState {
   orderAddedId: string,
   allOrders: object,
   myOrders: object,
-  orderDetails: object
+  orderDetails: object,
+  orders: Array<object>
 }
 
 export const initialState: IOrdersState = {
@@ -11,5 +12,6 @@ export const initialState: IOrdersState = {
   orderAddedId: null,
   allOrders: {},
   myOrders: {},
-  orderDetails: {}
+  orderDetails: {},
+  orders: []
 }

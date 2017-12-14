@@ -50,7 +50,7 @@ export class CreateOrderComponent implements OnInit {
 
   createOrder (event) {
     const length = this.product['toppings'].length;
-    const selectedToppings: Array<string> = [];
+    let selectedToppings: Array<string> = [];
     for (let i = 0; i < length; i++) {
       if (event.target[i].checked) {
         selectedToppings.push(event.target[i].value)

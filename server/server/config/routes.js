@@ -21,7 +21,7 @@ module.exports = (app) => {
   app.get('/order/customize/:id', auth.isAuthenticated, controllers.orders.addGet)
   app.post('/order/add', auth.isAuthenticated, controllers.orders.addPost)
   app.get('/order/details/:id', auth.isAuthenticated, controllers.orders.detailsGet)
-  app.get('/order/status', auth.isAuthenticated, controllers.orders.statusGet)
+  app.get('/order/status/:id', auth.isAuthenticated, controllers.orders.statusGet)
   app.get('/order/status-admin', auth.isInRole('Admin'), controllers.orders.statusAdminGet)
   app.post('/order/status-admin', auth.isInRole('Admin'), controllers.orders.statusAdminPost)
 

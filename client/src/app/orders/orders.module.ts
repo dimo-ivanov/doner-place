@@ -8,11 +8,13 @@ import { OrdersActions } from '../store/orders/orders.actions';
 
 import { CreateOrderComponent } from './create-order.component';
 import { OrderDetailsComponent } from './order-details.component';
+import { OrderStatusComponent } from './order-status.component';
 
 @NgModule({
   declarations: [
     CreateOrderComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    OrderStatusComponent
   ],
   providers: [
     OrdersService,

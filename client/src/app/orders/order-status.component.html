@@ -1,0 +1,28 @@
+<main>
+  <h1 *ngIf="isAdmin">Manage orders</h1>
+  <h1 *ngIf="!isAdmin">Your orders</h1>
+  <div class="orders">
+    <p *ngIf="orders.length < 1">No orders</p>
+    <form
+      id="change-status-form"
+      #changeStatusForm="ngForm"
+      (submit)="saveStatuses($event)">
+      <div *ngFor="let order of orders" class="order">
+          <span class="order-time">{{order.creationDate | date: 'dd/MM/yyyy'}}</span>
+          <span *ngIf="order.product" class="order-name">{{order.product.category}} doner, {{order.product.size}} cm</span>
+            <span *ngIf="isAdmin" class="order-status">
+              <select name="{{order._id}}">
+                  <option value="{{order.status}}">{{order.status}}</option>
+                  <option value="Pending">Pending</option>
+                  <option value="inProgress">In Progress</option>
+                  <option value="inTransit">In Transit</option>
+                  <option value="delivered">Delivered</option>
+              </select>
+            </span>
+            <span *ngIf="!isAdmin" class="order-status">{{order.status}}</span>
+          <a routerLink="/order/details/{{order._id}}" class="button order-button">Details</a>
+      </div>
+        <input *ngIf="isAdmin" type="submit" value="Save Changes" class="button" style="border:0">
+    </form>
+  </div>
+</main>

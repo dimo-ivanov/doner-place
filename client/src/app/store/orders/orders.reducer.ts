@@ -1,5 +1,5 @@
 import { initialState } from './orders.state';
-import { CREATE_ORDER, ORDER_DETAILS } from './orders.actions';
+import { CREATE_ORDER, ORDER_DETAILS, ORDER_STATUS, ALL_ORDERS, SAVE_STATUSES } from './orders.actions';
 
 function createOrder (state, action) {
   const result = action.result;
@@ -16,12 +16,23 @@ function getOrderDetails (state, action) {
   });
 }
 
+function getOrderStatus (state, action) {
+  const result = action.result.orders;
+  return Object.assign({}, state, {
+    orders: result
+  });
+}
+
 export function ordersReducer (state = initialState, action) {
   switch (action.type) {
     case CREATE_ORDER:
       return createOrder(state, action);
     case ORDER_DETAILS:
       return getOrderDetails(state, action);
+    case ORDER_STATUS:
+    case ALL_ORDERS:
+    case SAVE_STATUSES:
+      return getOrderStatus(state, action);
     default:
       return state;
   }
