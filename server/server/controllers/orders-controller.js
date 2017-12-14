@@ -26,7 +26,8 @@ module.exports = {
   },
   addPost: (req, res) => {
     let orderReq = req.body
-    let userId = req.user._id
+    // let userId = req.user._id
+    let userId = req.body.creator
 
     if (!orderReq.toppings) {
       orderReq.toppings = ''
@@ -46,7 +47,8 @@ module.exports = {
           return
         }
 
-        res.redirect(`/order/details/${order._id}`)
+        // res.redirect(`/order/details/${order._id}`)
+        res.json(order)
       })
       .catch(err => {
         let message = errorHandler.handleMongooseError(err)

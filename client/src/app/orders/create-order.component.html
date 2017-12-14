@@ -1,0 +1,32 @@
+<main>
+  <h1>Customize your order</h1>
+  <div class="catalog">
+      <div class="column">
+          <img src="{{url}}/{{product.imageUrl}}">
+      </div>
+      <div class="column">
+          <h2>{{product.category}} doner, {{product.size}}cm</h2><br>
+          <h3>Toppings</h3>
+          <div class="toppings">
+              <form
+                id="order-add-form"
+                #createOrderForm="ngForm"
+                (submit)="createOrder($event)">
+                <div *ngFor="let topping of product.toppings">
+                  <input
+                    name="{{topping}}"
+                    type="checkbox"
+                    value="{{topping}}"
+                    checked /><label for="{{topping}}">{{topping}}</label><br>
+                </div>
+                <br>
+                <input
+                    type="submit"
+                    value="Checkout"
+                    class="button"
+                    style="border:0" />
+              </form>
+          </div>
+      </div>
+  </div>
+</main>

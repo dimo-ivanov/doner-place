@@ -9,7 +9,7 @@ import {
 function userRegistration(state, action) {
   const result = action.result;
   return Object.assign({}, state, {
-    userRegistered: result.success
+    userRegistered: result.error ? false : true
   });
 }
 

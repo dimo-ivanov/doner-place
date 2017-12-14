@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   isAdmin () {
-    return window.localStorage.getItem('isAdmin') !== null;
+    return (window.localStorage.getItem('isAdmin') == 'yes');
   }
 
   isUserAuthenticated () {

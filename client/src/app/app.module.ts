@@ -11,6 +11,7 @@ import { CarRoutesModule } from './routes.module';
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
+import { OrdersModule } from './orders/orders.module';
 
 import { AppComponent } from './app.component';
 
@@ -30,7 +31,8 @@ import { config } from './core/config';
     CarRoutesModule,
     CoreModule,
     UsersModule,
-    ProductsModule
+    ProductsModule,
+    OrdersModule
   ],
   bootstrap: [AppComponent]
 })
