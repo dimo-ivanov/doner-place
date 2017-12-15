@@ -11,9 +11,9 @@ function getAll (state, action) {
 function create (state, action) {
   const result = action.result;
   return Object.assign({}, state, {
-    productAdded: result._id ? true : false,
-    productAddedId: result._id ? result._id : null
-  })
+    productAdded: result.allProducts ? true : false,
+    allProducts: result.allProducts
+  });
 }
 
 function edit (state, action) {

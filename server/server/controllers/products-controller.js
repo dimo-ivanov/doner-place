@@ -20,8 +20,7 @@ module.exports = {
         toppings: productReq.toppings.trim().split(', ')
       })
       .then(product => {
-        // res.redirect('/')
-        res.json(product)
+        res.redirect('/')
       })
       .catch(err => {
         let message = errorHandler.handleMongooseError(err)

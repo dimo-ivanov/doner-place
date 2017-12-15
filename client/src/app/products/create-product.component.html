@@ -1,5 +1,5 @@
 <main>
-  <form #createProductForm="ngForm" (submit)="createProduct()">
+  <form #createProductForm="ngForm" (submit)="createProduct($event)">
     <h2>Create Product</h2>
     <div>
       <label for="category">Category</label>

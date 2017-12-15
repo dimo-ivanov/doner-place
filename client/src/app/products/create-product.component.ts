@@ -19,15 +19,15 @@ export class CreateProductComponent {
     private router: Router
   ) { }
 
-  createProduct() {
+  createProduct(event) {
+    event.preventDefault();
+
     this.productsActions.createProduct(this.product);
-    let subscription = this.ngRedux
+
+    this.ngRedux
       .select(state => state.products)
       .subscribe(products => {
         if (products.productAdded) {
-          const id = products.productAddedId;
-          subscription.unsubscribe();
-
           this.router.navigateByUrl('');
         }
       });

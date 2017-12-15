@@ -48,6 +48,8 @@ export class CreateOrderComponent implements OnInit {
   }
 
   createOrder (event) {
+    event.preventDefault();
+    
     const length = this.product['toppings'].length;
     let selectedToppings: Array<string> = [];
     for (let i = 0; i < length; i++) {
